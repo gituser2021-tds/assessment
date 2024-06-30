@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -48,10 +49,12 @@ public class CustomerService {
         return restTemplate.getForEntity(uri, SampleApiDto.class).getBody();
     }
 
+    @Transactional
     public void delete(Long id){
         repository.deleteById(id);
     }
 
+    @Transactional
     public Customer save(Customer customer){
         return repository.save(customer);
     }

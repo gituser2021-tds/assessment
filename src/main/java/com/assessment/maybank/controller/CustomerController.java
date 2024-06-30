@@ -22,7 +22,7 @@ public class CustomerController {
     @Autowired
     private CustomerService customerService;
 
-    @Operation(summary = "To Get Customer" , description = "To get all Customer by pageNo and pageSize")
+    @Operation(summary = "To Get Customer" , description = "Explore 1 GET method api with Pagination (Each Page 10 records)")
     @RequestMapping(value = "/",method = RequestMethod.GET)
     public @ResponseBody ResponseEntity<ResponseMapper> findAll(@RequestParam(value = "pageNo",defaultValue = "0",required = true) int pageNo,
                                                                 @RequestParam(value = "pageSize",defaultValue = "10",required = true) int pageSize) {
@@ -64,7 +64,7 @@ public class CustomerController {
         }
     }
 
-    @Operation(summary = "Insert and Update Customer data" , description = "To Insert and update customer")
+    @Operation(summary = "Explore an api which will nested calling another api from 3rd party." )
     @RequestMapping(value = "/screen/{id}",method = RequestMethod.GET)
     public @ResponseBody ResponseEntity<ResponseMapper> screenCustomer(@PathVariable Long id) {
         try {
